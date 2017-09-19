@@ -1,0 +1,33 @@
+<section *ngIf="environment">
+<h2>Selected environment: {{environment.name}}</h2>
+<h3>Details</h3>
+<p>
+  Current branch: {{environment.currentBranch}}
+</p>
+<p>
+  Previous branch: {{environment.previousBranch}}
+</p>
+</section>
+
+<section>
+  <form>
+    <div>
+      <label for="currentBranch"> Current branch: </label>
+      <input type="text" name="currentBranch" required [(ngModel)]="environment.currentBranch" newBrach=#currentBranch #currentBranch="ngModel">
+      <div [hidden]="currentBranch.valid || currentBranch.pristine" class="error">
+        Current branch required!
+      </div>
+    </div>
+    <div>
+      <label for="previousBranch"> Previous branch: </label>
+      <input type="text" name="previousBranch" [(ngModel)]="environment.previousBranch" #previousBranch="ngModel">
+    </div>
+    <div *ngIf="currentBranch.errors && (currentBranch.dirty || currentBranch.touched)" class="error">
+      <p>
+        Current branch cannot be equal to current branch. Grow up.
+      </p>
+    </div>
+  </form>
+</section>
+
+<button (click)="goToEnvironmentList()">Back to dashboard</button>

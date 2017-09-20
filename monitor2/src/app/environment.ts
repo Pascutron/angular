@@ -3,4 +3,5 @@ export interface Environment {
   name: string;
   currentBranch: string;
   previousBranch: string;
+  newBranch: string;
 }

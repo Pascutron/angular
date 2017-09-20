@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { Environment } from '../environment';
 import { EnvironmentServiceService } from '../environment-service.service';
@@ -30,8 +31,12 @@ export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
   }
 
   goToEnvironmentList(){
-    // let link = ["/environments"];
-    // this.router.navigate(link);
     window.history.back();
   }
+
+  saveNewBranch(){
+    this.environmentService.save(this.environment);
+  }
+
+
 }

@@ -5,14 +5,13 @@ import { EnvironmentServiceService } from '../environment-service.service';
 @Component({
   selector: 'app-environment-list',
   template: `
-    <ul>
-      <li *ngFor="let environment of targetEnvironment">
-        <a [routerLink]="['/environments', environment.id]">
-          {{environment.name}}
-        </a>
-      </li>
-    </ul>
-
+  <div class="grid grid-pad">
+    <a *ngFor="let environment of targetEnvironment" [routerLink]="['/environments', environment.id]" class="col-1-4">
+      <div class="module">
+        {{environment.name}}
+      </div>
+    </a>
+  </div>
   `,
   styleUrls: ['./environment-list.component.css']
 })

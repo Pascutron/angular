@@ -13,3 +13,8 @@ input.ng-invalid {
   background-color: rgba(255, 0, 0, 0.2);
   color: red;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Environment } from '../environment';
 import { EnvironmentServiceService } from '../environment-service.service';
+import { UserAccounts } from '../userAccounts';
 
 @Component({
   selector: 'app-environment-details',
@@ -13,6 +14,7 @@ import { EnvironmentServiceService } from '../environment-service.service';
 export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
 
   environment: Environment;
+  targetUsers: UserAccounts[] = [];
   sub: any;
 
   constructor(private route:ActivatedRoute,
@@ -23,7 +25,20 @@ export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
         let id = Number.parseInt(params['id']);
         this.environment = this.environmentService.get(id);
+        this.targetUsers = this.environmentService.getUsers();
+
+        var getEnviromentUsers = this.environment.name;
+        var getAllUsers = this.targetUsers;
+
+        //let filtrado
+        //if()
+
+        console.log(getAllUsers);
+        console.log('EL LENGHT = ' + getAllUsers.length);
+        console.log(getEnviromentUsers);
+        console.log(id);
     })
+
   }
 
   ngOnDestroy(): void{

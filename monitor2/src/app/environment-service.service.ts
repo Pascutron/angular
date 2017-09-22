@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Environment } from './environment'
+import { Environment } from './environment';
+import { UserAccounts } from './userAccounts';
 
 let ENVIRONMENTS : Environment[] = [
   {id: 1, name: 'TEST', currentBranch: 'master.QuestForProducts', previousBranch: 'old.test', newBranch: 'null'},
@@ -9,6 +10,12 @@ let ENVIRONMENTS : Environment[] = [
   {id: 5, name: 'SLOT01', currentBranch: 'integration', previousBranch: 'old.slot01', newBranch: 'null'}
 ];
 
+let USERACCOUNTS : UserAccounts[] = [
+  {environment: 'TEST', platform: 'Vault', username: 'default.admin', password: 'MegaAdmin2017!'},
+  {environment: 'TEST', platform: 'Quest', username: 'default.user', password: '1234qwerASDF!@'},
+  {environment: 'UAT', platform: 'Quest', username: 'uat', password: 'uat'}
+];
+
 @Injectable()
 export class EnvironmentServiceService {
 
@@ -16,6 +23,10 @@ export class EnvironmentServiceService {
 
   getAll(): Environment[] {
     return ENVIRONMENTS;
+  }
+
+  getUsers(): UserAccounts[] {
+    return USERACCOUNTS;
   }
 
   get(id: number) : Environment{

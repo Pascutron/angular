@@ -20,6 +20,19 @@
   </form>
 </section>
 
+<section>
+  <table>
+    <tr *ngFor="let users of targetUsers">
+      <td>
+        {{users.username}}
+      </td>
+      <td>
+        {{users.password}}
+      </td>
+    </tr>
+  </table>
+</section>
+
 <button (click)="goToEnvironmentList()">Back to dashboard</button>
 
 <!-- required [(ngModel)]="environment.currentBranch" -->

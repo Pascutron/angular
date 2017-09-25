@@ -25,19 +25,23 @@ export class EnvironmentServiceService {
     return ENVIRONMENTS;
   }
 
-  getUsers(): UserAccounts[]{
-    return USERACCOUNTS;
-  }
-
-  // getUsers(environmentName) {
-  //   var wasca : UserAccounts[];
-  //   for(let i = 0, i < wasca.length, i ++){
-  //     if(environmentName === wasca[i].name){
-  //       console.log('environmentName');
-  //       console.log('wasca');
-  //     };
-  //   };
+  // getUsers(): UserAccounts[]{
+  //   return USERACCOUNTS;
   // }
+
+  getUsers(environmentName : string): UserAccounts[] {
+    /*
+    var result : UserAccounts[] = [];
+    for(let i = 0; i < USERACCOUNTS.length; i++){
+      let item = USERACCOUNTS[i];
+      if(environmentName === item.environment){
+        result.push(item);
+      }
+    }
+    return result;
+    */
+    return USERACCOUNTS.filter(x => x.environment == environmentName);
+  }
 
   get(id: number) : Environment{
     return ENVIRONMENTS.find(e => e.id === id);

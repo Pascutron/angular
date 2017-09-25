@@ -27,17 +27,18 @@ export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
         let id = Number.parseInt(params['id']);
         this.environment = this.environmentService.get(id);
-        this.targetUsers = this.environmentService.getUsers();
+        this.targetUsers = this.environmentService.getUsers(this.environment.name);
 
-        var getEnviromentForUsers = this.environment.name;
-        var getAllUsers = this.targetUsers;
+        var enviromentForUsers = this.environment.name;
+        var allUsers = this.targetUsers;
 
         //this.environmentUsers = this.getAllUsers.filter( user => user.getEnviromentForUsers === this.getEnviromentForUsers);
+//        var environmentUsers = allUsers.filter(function(x) { return x.environment == enviromentForUsers} );
 
-
-        console.log(getAllUsers);
-        console.log('EL LENGHT = ' + getAllUsers.length);
-        console.log(getEnviromentForUsers);
+        console.log(allUsers);
+        console.log('EL LENGHT = ' + allUsers.length);
+        console.log(enviromentForUsers);
+  //      console.log(environmentUsers);
         console.log(id);
     })
 

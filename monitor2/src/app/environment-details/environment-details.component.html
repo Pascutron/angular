@@ -1,5 +1,5 @@
 <section *ngIf="environment">
-<h2>Selected environment: {{environment.name}}</h2>
+<h2>{{environment.name}}</h2>
 <h3>Details</h3>
 <p>
   {{environment.currentBranch}} is the current deployed branch.
@@ -10,19 +10,23 @@
 </section>
 
 <section>
-  <h3>NEW VALUES</h3>
+  <h3>Update</h3>
   <form (ngSubmit)="saveNewBranch()" #envForm="ngForm">
     <div>
-      <label for="newBranch"> Current branch: </label>
+      <label for="newBranch"> New current branch: </label>
       <input type="text" name="newBranch" [(ngModel)]="environment.newBranch" #newBranch="ngModel">
+      <button type="submit">Update!</button>
     </div>
-    <button type="submit">Save!</button>
   </form>
 </section>
 
+<h3>User list</h3>
 <section>
-  <table>
+  <table align="center">
     <tr *ngFor="let users of targetUsers">
+      <td>
+        {{users.environment}}
+      </td>
       <td>
         {{users.username}}
       </td>
@@ -32,7 +36,7 @@
     </tr>
   </table>
 </section>
-
+<br/>
 <button (click)="goToEnvironmentList()">Back to dashboard</button>
 
 <!-- required [(ngModel)]="environment.currentBranch" -->

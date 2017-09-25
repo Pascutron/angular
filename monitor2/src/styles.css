@@ -17,4 +17,9 @@ input.ng-invalid {
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    border-bottom: 1px solid #ddd;
+}
+
+h1, h2, h3 {
+  font-family: Verdana;
 }

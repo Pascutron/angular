@@ -25,9 +25,19 @@ export class EnvironmentServiceService {
     return ENVIRONMENTS;
   }
 
-  getUsers(): UserAccounts[] {
+  getUsers(): UserAccounts[]{
     return USERACCOUNTS;
   }
+
+  // getUsers(environmentName) {
+  //   var wasca : UserAccounts[];
+  //   for(let i = 0, i < wasca.length, i ++){
+  //     if(environmentName === wasca[i].name){
+  //       console.log('environmentName');
+  //       console.log('wasca');
+  //     };
+  //   };
+  // }
 
   get(id: number) : Environment{
     return ENVIRONMENTS.find(e => e.id === id);

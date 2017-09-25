@@ -15,7 +15,9 @@ export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
 
   environment: Environment;
   targetUsers: UserAccounts[] = [];
+  enviromentUsers: UserAccounts[];
   sub: any;
+
 
   constructor(private route:ActivatedRoute,
               private environmentService:EnvironmentServiceService,
@@ -27,15 +29,15 @@ export class EnvironmentDetailsComponent implements OnInit, OnDestroy {
         this.environment = this.environmentService.get(id);
         this.targetUsers = this.environmentService.getUsers();
 
-        var getEnviromentUsers = this.environment.name;
+        var getEnviromentForUsers = this.environment.name;
         var getAllUsers = this.targetUsers;
 
-        //let filtrado
-        //if()
+        //this.environmentUsers = this.getAllUsers.filter( user => user.getEnviromentForUsers === this.getEnviromentForUsers);
+
 
         console.log(getAllUsers);
         console.log('EL LENGHT = ' + getAllUsers.length);
-        console.log(getEnviromentUsers);
+        console.log(getEnviromentForUsers);
         console.log(id);
     })
 

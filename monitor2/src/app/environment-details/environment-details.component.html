@@ -23,9 +23,22 @@
 <h3>User list</h3>
 <section>
   <table align="center">
+    <tr>
+      <th>Tenant</th>
+      <th>Platform</th>
+      <th>Role</th>
+      <th>Username</th>
+      <th>Password</th>
+    </tr>
     <tr *ngFor="let users of targetUsers">
       <td>
-        {{users.environment}}
+        {{users.tenant}}
+      </td>
+      <td>
+        {{users.platform}}
+      </td>
+      <td>
+        {{users.role}}
       </td>
       <td>
         {{users.username}}

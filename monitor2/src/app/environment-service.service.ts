@@ -11,9 +11,9 @@ let ENVIRONMENTS : Environment[] = [
 ];
 
 let USERACCOUNTS : UserAccounts[] = [
-  {environment: 'TEST', platform: 'Vault', username: 'default.admin', password: 'MegaAdmin2017!'},
-  {environment: 'TEST', platform: 'Quest', username: 'default.user', password: '1234qwerASDF!@'},
-  {environment: 'UAT', platform: 'Quest', username: 'uat', password: 'uat'}
+  {environment: 'TEST', tenant: 'AEP', platform: 'Vault', role: 'Superadmin', username: 'default.admin', password: 'MegaAdmin2017!'},
+  {environment: 'TEST', tenant: 'AEP', platform: 'Quest', role: 'Agent', username: 'default.user', password: '1234qwerASDF!@'},
+  {environment: 'UAT', tenant: 'AEP', platform: 'Quest', role: 'UAT',  username: 'uat', password: 'uat'}
 ];
 
 @Injectable()
@@ -25,21 +25,7 @@ export class EnvironmentServiceService {
     return ENVIRONMENTS;
   }
 
-  // getUsers(): UserAccounts[]{
-  //   return USERACCOUNTS;
-  // }
-
   getUsers(environmentName : string): UserAccounts[] {
-    /*
-    var result : UserAccounts[] = [];
-    for(let i = 0; i < USERACCOUNTS.length; i++){
-      let item = USERACCOUNTS[i];
-      if(environmentName === item.environment){
-        result.push(item);
-      }
-    }
-    return result;
-    */
     return USERACCOUNTS.filter(x => x.environment == environmentName);
   }
 
